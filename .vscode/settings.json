@@ -1,0 +1,11 @@
+{
+    "CodeGPT.apiKey": "OpenAI",
+    "CodeGPT.Autocomplete.provider": "CodeGPT Plus - Plus",
+    "intelephense.files.associations": [
+        "*.php",
+        "*.phtml"
+    ],
+    "files.associations": {
+        "\"*.module\"": "\"php\""
+    }
+}

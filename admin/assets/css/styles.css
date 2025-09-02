@@ -1,0 +1,896 @@
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 400;
+    src: url('./fonts/poppins-regular-webfont.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 500;
+    src: url('./fonts/poppins-bold-webfont.woff2') format('woff2');
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* Prevent scroll */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    padding: 0;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-toggler {
+    background-color: #ffffff;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #007bff !important;
+}
+
+.nav-link {
+    color: #007bff !important;
+}
+
+.nav-link.active {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+}
+
+.page-body-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar {
+    background-color: #1b1e21;
+    padding: 20px;
+    color: #cfd8dc;
+    width: 300px; /* Adjust width as needed */
+    height: auto;
+}
+
+.sidebar .nav-link {
+    color: #cfd8dc;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .nav-link.active {
+    background-color: #007bff;
+    color: #ffffff !important;
+    border-radius: 5px;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #343a40;
+    border-radius: 5px;
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+}
+
+.sidebar .user-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .user-info img {
+    width: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sidebar .user-info .user-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.sidebar .user-info .user-email {
+    font-size: 14px;
+    color: #cfd8dc;
+}
+
+.main-panel {
+    flex-grow: 1;
+    overflow: hidden; /* Prevent scroll */
+}
+
+.content-wrapper {
+    margin-top: 20px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.card .card-body {
+    padding: 20px;
+}
+
+.card .btn {
+    margin-top: 10px; /* Space between card content and button */
+    display: inline-block; /* Ensure button respects its content width */
+    width: 100%; /* Make button span the full width of the card */
+    text-align: center; /* Center-align text within button */
+}
+
+.card .btn.btn-light {
+    color: #007bff; /* Set button text color */
+    border: 1px solid #007bff; /* Set border color */
+}
+
+.card .btn.btn-light:hover {
+    background-color: #007bff; /* Background color on hover */
+    color: #ffffff; /* Text color on hover */
+}
+
+.card-text {
+    color: #ffffff !important;
+}
+
+.card.bg-success {
+    background-color: #28a745;
+}
+
+.card.bg-danger {
+    background-color: #dc3545;
+}
+
+.card.bg-warning {
+    background-color: #ffc107;
+}
+
+.card.bg-info {
+    background-color: #17a2b8;
+}
+
+.sidebar ul {
+    list-style-type: none; /* Remove bullets */
+    padding-left: 0; /* Remove default padding */
+}
+
+/* Style for the submenu container when expanded */
+#departmentsSubmenu, #prospectusSubmenu {
+    margin-left: 10px; /* Move the submenu to the right */
+}
+
+/* Style for submenu items */
+#departmentsSubmenu .nav-link, #prospectusSubmenu .nav-link {
+    padding-left: 10px; /* Indent submenu items */
+    color: #cfd8dc; /* Adjust text color to match the sidebar theme */
+}
+
+/* Optional: Adjust hover and active states for submenu items */
+#departmentsSubmenu .nav-link:hover, #prospectusSubmenu .nav-link:hover {
+    background-color: #343a40; /* Background color on hover */
+    color: #ffffff; /* Text color on hover */
+}
+
+/* Footer styling */
+
+/* Enhanced page header styling */
+.enhanced-page-header {
+    background-color: #f1f1f1; /* Light gray background */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Flexbox layout for header content */
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Distribute space between title and breadcrumb */
+    align-items: center;
+}
+
+/* Enhanced page title styling */
+.enhanced-page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    margin: 0; /* Remove default margin */
+}
+
+/* Enhanced breadcrumb styling */
+.enhanced-breadcrumb-nav {
+    margin: 0; /* Remove default margin */
+}
+
+.enhanced-breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.enhanced-breadcrumb .breadcrumb-item a {
+    color: #007bff; /* Link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.enhanced-breadcrumb .breadcrumb-item a:hover {
+    color: #0056b3; /* Darker link color on hover */
+}
+
+.enhanced-breadcrumb .breadcrumb-item.active {
+    color: #6c757d; /* Gray color for active item */
+}
+
+/* Style for the Add Department form container */
+.add-department-container {
+    max-width: 800px; /* Increased max-width for a longer form */
+    margin: 40px auto; /* Center the form horizontally and add top and bottom margins */
+    padding: 30px; /* Increase padding for a more spacious feel */
+    background-color: #ffffff;
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
+}
+
+/* Style for form titles and labels */
+.add-department-container h4 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 25px; /* Slightly increased space below the title */
+    font-size: 24px; /* Larger font size for the title */
+}
+
+.add-department-container .form-group label {
+    font-weight: bold;
+    color: #333333;
+    font-size: 16px; /* Increase label font size for readability */
+}
+
+/* Style for large input fields */
+.add-department-container .form-control {
+    width: 100%; /* Ensure input fields span the full width of the container */
+    height: 55px; /* Increase height for a more substantial input field */
+    padding: 12px; /* Increase padding for better usability */
+    font-size: 18px; /* Larger font size for readability */
+    border-radius: 6px; /* Slightly more rounded corners for input fields */
+    border: 1px solid #ced4da; /* Border color */
+    box-sizing: border-box; /* Include padding and border in width */
+    margin-bottom: 20px; /* Ensure consistent spacing between input fields */
+}
+
+/* Style for the submit button */
+.add-department-container .btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px; /* Slightly more rounded corners for buttons */
+    padding: 12px 30px; /* Increased padding for a more substantial button */
+    font-size: 18px; /* Larger font size for button text */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background color and text color */
+    display: block; /* Ensure the button takes up the full width */
+    width: 100%; /* Make the button span the full width of the container */
+    text-align: center; /* Center the button text */
+    font-weight: bold;
+}
+
+.add-department-container .btn-primary:hover {
+    background-color: #0056b3;
+    color: #1b1e21;
+}
+
+/* Additional spacing for form groups */
+.add-department-container .form-group {
+    margin-bottom: 25px; /* Increase space between form groups */
+}
+
+.course-input {
+    width: 565px;
+    height: 55px;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.course-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25); /* Blue shadow on focus */
+    outline: none; /* Remove default outline */
+}
+
+.course-button {
+    height: 55px;
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.course-button:hover {
+    background-color: #218838;
+    color: #1b1e21;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background color and text color */
+}
+
+.course-item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.course-label {
+    font-weight: bold;
+    color: #333333;
+    font-size: 16px; /* Increase label font size for readability */
+}
+
+#course-list {
+    max-height: 200px; /* Set the maximum height for the scrollable area */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    padding: 10px; /* Optional: Add padding inside the scrollable area */
+    margin-top: 10px; /* Optional: Add space between the course list and the input */
+}
+
+.remove-course {
+    width: 50px;
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.remove-course:hover {
+    background-color: #c82333;
+    color: #1b1e21;
+}
+
+.table-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    max-width: 1000px;
+    height: 700px; /* Adjust the height as needed */
+    overflow-y: auto;
+    margin-left: auto;
+    margin-right: auto;
+    scrollbar-width: none; /* For Firefox, hide the scrollbar */
+}
+
+.table-container::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and other WebKit browsers, hide the scrollbar */
+}
+
+.courses-table-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    max-width: 1000px;
+    height: 650px; /* Adjust the height as needed */
+    overflow-y: auto;
+    margin-left: auto;
+    margin-right: auto;
+    scrollbar-width: none; /* For Firefox, hide the scrollbar */
+}
+
+.courses-table-container::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and other WebKit browsers, hide the scrollbar */
+}
+
+.department-name-container {
+    text-align: center; /* Center the text */
+    margin-top: 20px; /* Adjust the top margin */
+    margin-bottom: 20px; /* Adjust the bottom margin */
+    font-weight: bold; /* Make the text bold */
+    color: #333; /* Adjust text color if needed */
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #1b1e21;
+}
+
+th {
+    background-color: #4CAF50; /* Header background color */
+    color: white; /* Header text color */
+}
+
+.action-buttons {
+    text-align: center;
+}
+
+/* Making the buttons inline-block elements */
+.action-buttons button {
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    display: inline-block; /* Changed from flex to inline-block */
+    margin: 5px 10px; /* Adds space between the buttons */
+}
+
+.action-buttons .view-btn {
+    background-color: #d4edda; /* Light green for View */
+    color: #155724; /* Dark green text */
+}
+
+.action-buttons .edit-btn {
+    background-color: #cce5ff; /* Light blue for Edit */
+    color: #004085; /* Dark blue text */
+}
+
+.action-buttons .delete-btn {
+    background-color: #f8d7da; /* Light red for Delete */
+    color: #721c24; /* Dark red text */
+}
+
+.action-buttons .view-btn:hover {
+    background-color: #228B22; /* Slightly darker green on hover */
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background color and text color */
+}
+
+.action-buttons .edit-btn:hover {
+    background-color: #0047AB; /* Slightly darker blue on hover */
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background color and text color */
+}
+
+.action-buttons .delete-btn:hover {
+    background-color: #C41E3A; /* Slightly darker red on hover */
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background color and text color */
+}
+
+.custom-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto; /* Centers the container horizontally and adds vertical space */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    max-width: 1000px; /* Adjusted to center the form better */
+    height: auto; 
+}
+
+.custom-form-wrapper {
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.custom-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
+}
+
+/* Common style for action buttons */
+.action-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Style for cancel button */
+.cancel-action {
+    background-color: #d9534f; /* Bootstrap's danger color */
+    color: white;
+}
+
+.cancel-action:hover {
+    background-color: #c9302c; /* Darker shade for hover effect */
+    color: #1b1e21;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background color and text color */
+}
+
+/* Style for submit button */
+.submit-action {
+    background-color: #0275d8; /* Bootstrap's primary color */
+    color: white;
+    margin-left: 5px;
+}
+
+.submit-action:hover {
+    background-color: #025aa5; /* Darker shade for hover effect */
+    color: #1b1e21;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background color and text color */
+}
+
+/* prospectus.css */
+
+/* Container styling */
+.prospectus-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    max-width: 1400px;
+    height: 700px; /* Adjust the height as needed */
+    overflow-y: auto; 
+    margin-left: auto;
+    margin-right: auto;
+    scrollbar-width: none; /* For Firefox, hide the scrollbar */
+}
+
+.prospectus-container::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and other WebKit browsers, hide the scrollbar */
+}
+
+.report-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    max-width: 1400px;
+    height: 650px; /* Adjust the height as needed */
+    overflow-y: auto; 
+    margin-left: auto;
+    margin-right: auto;
+    scrollbar-width: none; /* For Firefox, hide the scrollbar */
+}
+
+.report-container ::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and other WebKit browsers, hide the scrollbar */
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+}
+
+.degree_label {
+    font-weight: 600;
+    color: #333;
+    margin-right: 5px; /* Adds space between label and input */
+}
+
+.college_label {
+    font-weight: 600;
+    color: #333;
+    margin-right: 5px; /* Adds space between label and input */
+    margin-left: 20px;
+}
+
+.effective_year_label {
+    font-weight: 600;
+    color: #333;
+    margin-right: 10px; /* Adds space between label and input */
+    margin-left: 20px;
+}
+
+.custom-width {
+    width: 200px; /* Adjust as needed */
+}
+  
+/* Input styling */
+.form-inputs {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.form-input {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    width: 350px;
+    font-size: 14px;
+    margin: 5px 10px;
+}
+
+.dropdown {
+    margin-left: 10px; /* Adds space between dropdown and label */
+}
+
+/* Scrollable dropdown styling */
+.degree {
+    max-height: 300px; /* Set the maximum height of the dropdown */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    padding: 0; /* Remove default padding */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Optional: Style for individual dropdown items */
+.dropdown-item.degree {
+    padding: 15px 16px;
+    font-size: 14px;
+}
+
+/* Table container styling */
+.semester-table-container {
+    margin-top: 30px;
+}
+
+.semester-table-container h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+/* Table styling */
+.prospectus-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-y: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.prospectus-table th, .prospectus-table td {
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #1b1e21;
+}
+
+.prospectus-table td input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.scrollable-table-wrapper {
+    max-height: 1400px; /* Adjust the height as needed */
+    /* overflow-y: auto; Enable vertical scrolling */
+    /* scrollbar-width: none; For Firefox, hide the scrollbar */
+}
+
+/* Button styling */
+.btn-add-degree {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    margin-top: 15px;
+    border: none;
+}
+
+.btn-add-degree:hover {
+    background-color: #0056b3;
+    color: #1b1e21;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button-container {
+    text-align: center; /* Center aligns the content inside this container */
+}
+
+.btn-save {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    margin-top: 20px;
+}
+
+.btn-save:hover {
+    background-color: #218838;
+    color: #1b1e21;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-add-course {
+    background-color: #e6f9e8;
+    color: #28a745;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-edit-course,
+.btn-remove-course {
+    background-color: transparent;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 2px; /* Ensure consistent margin */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Specific styles for each button */
+.btn-edit-course {
+    background-color: #cce5ff; /* Light blue for Edit */
+    color: #004085; /* Dark blue text */
+}
+
+.btn-remove-course {
+    background-color: #f8d7da; /* Light red for Delete */
+    color: #721c24; /* Dark red text */
+}
+
+
+.btn-remove-course:hover {
+    background-color: #c9302c; /* Darker shade for hover effect */
+    color: #1b1e21;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background color and text color */
+}
+
+.btn-add-course:hover {
+    background-color: #218838;
+    color: #1b1e21;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background color and text color */
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+    background-color: #495057;
+    border-radius: 0.25rem;
+    border: none;
+    padding: 1rem;
+    min-width: 200px;    
+    scrollbar-width: none; /* For Firefox, hide the scrollbar */
+}
+
+.dropdown-menu::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and other WebKit browsers, hide the scrollbar */
+}
+
+.dropdown-header {
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.profile-image {
+    width: 30px;
+    height: 30px;
+}
+
+.profile-image-lg {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #007bff;;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.custom-profile-img {
+    border: 2px solid #007bff;;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-item {
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+.dropdown-item i {
+    font-size: 1.25rem;
+    color: #17a2b8; /* Adjust icon color to match your theme */
+}
+
+.dropdown-item:hover i,
+.dropdown-item:focus i {
+    color: #0dcaf0; /* Icon color on hover */
+}
+
+/* Notification item styling */
+.notification-item {
+    padding: 10px; /* Add some padding for better spacing */
+}
+
+/* Optional: Hover effect to distinguish the items */
+.notification-item:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+/* Custom Styling for My Profile, Settings, Sign Out */
+.dropdown-item.d-flex {
+    align-items: center;
+}
+
+.dropdown-item i.bi {
+    margin-right: 0.5rem;
+}
+
+.navbar-nav .dropdown-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav .profile-image {
+    margin-right: 10px;
+    border: 2px solid #ffffff;
+}
+
+.profile-card {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    height: 700px; /* Adjust the height as needed */
+    overflow-y: auto;
+    margin-left: auto;
+    margin-right: auto;    
+    scrollbar-width: none; /* For Firefox, hide the scrollbar */
+}
+
+.profile-card::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and other WebKit browsers, hide the scrollbar */
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.chart-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
